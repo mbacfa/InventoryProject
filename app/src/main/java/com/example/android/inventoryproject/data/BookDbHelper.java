@@ -32,10 +32,11 @@ public class BookDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // Create a String that contains the SQL statement to create the books table
         String SQL_CREATE_BOOKS_TABLE =  "CREATE TABLE " + BookEntry.TABLE_NAME + " ("
-                + BookEntry.COLUMN_BOOK_NAME + " NOT NULL, "
-                + BookEntry.COLUMN_BOOK_SUPPLIER + " , "
+                + BookEntry.COLUMN_BOOK_NAME + " TEXT NOT NULL, "
+                + BookEntry.COLUMN_BOOK_SUPPLIER + " TEXT, "
                 + BookEntry.COLUMN_BOOK_PRICE + " INTEGER NOT NULL, "
-                + BookEntry.COLUMN_BOOK_QUANTITY + " INTEGER NOT NULL DEFAULT 0);";
+                + BookEntry.COLUMN_BOOK_QUANTITY + " INTEGER NOT NULL DEFAULT 0, "
+                + BookEntry.COLUMN_BOOK_SUPPLIER_PHONE + " INTEGER DEFAULT 0);";
 
         // Execute the SQL statement
         db.execSQL(SQL_CREATE_BOOKS_TABLE);

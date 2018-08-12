@@ -20,6 +20,9 @@ public class EditorActivity extends AppCompatActivity {
     /** EditText field to enter the books supplier */
     private EditText mSupplierEditText;
 
+    /** EditText field to enter the books supplier */
+    private EditText mPhoneEditText;
+
     /** EditText field to enter the books price */
     private EditText mPriceEditText;
 
@@ -34,6 +37,7 @@ public class EditorActivity extends AppCompatActivity {
         // Find all relevant views that we will need to read user input from
         mNameEditText = (EditText) findViewById(R.id.edit_book_title);
         mSupplierEditText = (EditText) findViewById(R.id.edit_book_supplier);
+        mPhoneEditText = (EditText) findViewById(R.id.edit_phone);
         mPriceEditText = (EditText) findViewById(R.id.edit_book_price);
         mQuantityEditText = (EditText) findViewById(R.id.edit_book_quantity);
     }
@@ -48,6 +52,8 @@ public class EditorActivity extends AppCompatActivity {
         // Use trim to eliminate leading or trailing white space
         String nameString = mNameEditText.getText().toString().trim();
         String supplierString = mSupplierEditText.getText().toString().trim();
+        String phoneString = mPhoneEditText.getText().toString().trim();
+        int phone = Integer.parseInt(phoneString);
         String priceString = mPriceEditText.getText().toString().trim();
         int price = Integer.parseInt(priceString);
         String quantityString = mQuantityEditText.getText().toString().trim();
@@ -66,6 +72,7 @@ public class EditorActivity extends AppCompatActivity {
         values.put(BookEntry.COLUMN_BOOK_SUPPLIER, supplierString);
         values.put(BookEntry.COLUMN_BOOK_PRICE, price);
         values.put(BookEntry.COLUMN_BOOK_QUANTITY, quantity);
+        values.put(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE,phone);
 
         // Insert a new row for book in the database, returning the ID of that new row.
         long newRowId = db.insert(BookEntry.TABLE_NAME, null, values);

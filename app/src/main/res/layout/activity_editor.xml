@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,25 +13,31 @@
         android:orientation="horizontal">
 
         <TextView
-            android:text="@string/category_overview"
-            style="@style/CategoryStyle" />
+            style="@style/CategoryStyle"
+            android:text="@string/category_overview" />
 
         <LinearLayout
-            android:layout_height="wrap_content"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:paddingLeft="4dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="4dp">
 
             <EditText
                 android:id="@+id/edit_book_title"
-                android:inputType="textCapWords"
-                style="@style/EditorFieldStyle" />
+                style="@style/EditorFieldStyle"
+                android:inputType="textCapWords" />
 
             <EditText
                 android:id="@+id/edit_book_supplier"
-                android:inputType="textCapWords"
-                style="@style/EditorFieldStyle" />
+                style="@style/EditorFieldStyle"
+                android:inputType="textCapWords" />
+
+            <EditText
+                android:id="@+id/edit_phone"
+                style="@style/EditorFieldStyle"
+                android:inputType="number" />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -43,24 +48,24 @@
         android:orientation="horizontal">
 
         <TextView
-            android:text="@string/category_price"
-            style="@style/CategoryStyle" />
+            style="@style/CategoryStyle"
+            android:text="@string/category_price" />
 
         <RelativeLayout
-            android:layout_height="wrap_content"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:paddingLeft="4dp">
 
             <EditText
                 android:id="@+id/edit_book_price"
-                android:inputType="number"
-                style="@style/EditorFieldStyle" />
+                style="@style/EditorFieldStyle"
+                android:inputType="number" />
 
             <TextView
                 android:id="@+id/label_price_units"
-                android:text="@string/unit_book_price"
-                style="@style/EditorUnitsStyle"/>
+                style="@style/EditorUnitsStyle"
+                android:text="@string/unit_book_price" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -71,24 +76,26 @@
         android:orientation="horizontal">
 
         <TextView
-            android:text="@string/category_quantity"
-            style="@style/CategoryStyle" />
+            style="@style/CategoryStyle"
+            android:text="@string/category_quantity" />
 
         <RelativeLayout
-            android:layout_height="wrap_content"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:paddingLeft="4dp">
 
             <EditText
                 android:id="@+id/edit_book_quantity"
-                android:inputType="number"
-                style="@style/EditorFieldStyle" />
+                style="@style/EditorFieldStyle"
+                android:inputType="number" />
 
             <TextView
                 android:id="@+id/label_quantity_units"
-                android:text="@string/unit_book_quantity"
-                style="@style/EditorUnitsStyle"/>
+                style="@style/EditorUnitsStyle"
+                android:text="@string/unit_book_quantity" />
         </RelativeLayout>
     </LinearLayout>
+
+
 </LinearLayout>
