@@ -26,11 +26,13 @@
             <EditText
                 android:id="@+id/edit_book_title"
                 style="@style/EditorFieldStyle"
+                android:hint="@string/hint_title"
                 android:inputType="textCapWords" />
 
             <EditText
                 android:id="@+id/edit_book_supplier"
                 style="@style/EditorFieldStyle"
+                android:hint="@string/hint_supplier"
                 android:inputType="textCapWords" />
 
             <EditText
