@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -93,6 +94,7 @@ public class EditorActivity extends AppCompatActivity implements
         mPriceEditText = (EditText) findViewById(R.id.edit_book_price);
         mQuantityEditText = (EditText) findViewById(R.id.edit_book_quantity);
         mPhoneEditText = (EditText) findViewById(R.id.edit_phone);
+        Button mButtonOrderMore = findViewById(R.id.order_button);
 
 
         // Setup OnTouchListeners on all the input fields, so we can determine if the user
@@ -103,6 +105,18 @@ public class EditorActivity extends AppCompatActivity implements
         mPriceEditText.setOnTouchListener(mTouchListener);
         mQuantityEditText.setOnTouchListener(mTouchListener);
         mPhoneEditText.setOnTouchListener(mTouchListener);
+
+        mButtonOrderMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phone = mPhoneEditText.getText().toString().trim();
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + phone));
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
 

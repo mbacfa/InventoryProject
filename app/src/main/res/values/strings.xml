@@ -29,4 +29,5 @@
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
     <string name="unknown_supplier">Unknown Supplier</string>
+    <string name="order_button">Order</string>
 </resources>
