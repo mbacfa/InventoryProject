@@ -30,4 +30,6 @@
     <string name="cancel">Cancel</string>
     <string name="unknown_supplier">Unknown Supplier</string>
     <string name="order_button">Order</string>
+    <string name="decrease_quantity_button">-</string>
+    <string name="increase_quantity_button">+</string>
 </resources>

@@ -88,15 +88,33 @@
             android:layout_weight="2"
             android:paddingLeft="4dp">
 
+            <Button
+                android:id="@+id/decrease_quantity"
+                android:layout_width="@dimen/button_size"
+                android:layout_height="@dimen/button_size"
+                android:text="@string/decrease_quantity_button"
+                android:textAlignment="center"
+                />
+            <Button
+                android:id="@+id/increase_quantity"
+                android:layout_width="@dimen/button_size"
+                android:layout_height="@dimen/button_size"
+                android:text="@string/increase_quantity_button"
+                android:layout_toRightOf="@id/decrease_quantity"
+                android:textAlignment="center"
+                />
+
             <EditText
                 android:id="@+id/edit_book_quantity"
                 style="@style/EditorFieldStyle"
-                android:inputType="number" />
+                android:inputType="number"
+                android:layout_toRightOf="@id/increase_quantity"/>
 
             <TextView
                 android:id="@+id/label_quantity_units"
                 style="@style/EditorUnitsStyle"
-                android:text="@string/unit_book_quantity" />
+                android:text="@string/unit_book_quantity"/>
+
         </RelativeLayout>
     </LinearLayout>
 

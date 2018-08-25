@@ -95,6 +95,8 @@ public class EditorActivity extends AppCompatActivity implements
         mQuantityEditText = (EditText) findViewById(R.id.edit_book_quantity);
         mPhoneEditText = (EditText) findViewById(R.id.edit_phone);
         Button mButtonOrderMore = findViewById(R.id.order_button);
+        Button mButtonIncrease = findViewById(R.id.increase_quantity);
+        Button mButtonDecrease = findViewById(R.id.decrease_quantity);
 
 
         // Setup OnTouchListeners on all the input fields, so we can determine if the user
@@ -105,6 +107,8 @@ public class EditorActivity extends AppCompatActivity implements
         mPriceEditText.setOnTouchListener(mTouchListener);
         mQuantityEditText.setOnTouchListener(mTouchListener);
         mPhoneEditText.setOnTouchListener(mTouchListener);
+        mButtonIncrease.setOnTouchListener(mTouchListener);
+        mButtonDecrease.setOnTouchListener(mTouchListener);
 
         mButtonOrderMore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +118,38 @@ public class EditorActivity extends AppCompatActivity implements
                 intent.setData(Uri.parse("tel:" + phone));
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivity(intent);
+                }
+            }
+        });
+
+        mButtonIncrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String quantity = mQuantityEditText.getText().toString();
+                if (TextUtils.isEmpty(quantity)) {
+                    mQuantityEditText.setText("1");
+                } else {
+                    int quantity_not_null = Integer.parseInt(mQuantityEditText.getText().toString().trim());
+                    quantity_not_null++;
+                    mQuantityEditText.setText(String.valueOf(quantity_not_null));
+                }
+            }
+        });
+
+        mButtonDecrease.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String quantity = mQuantityEditText.getText().toString();
+                if (TextUtils.isEmpty(quantity)) {
+                    mQuantityEditText.setText("0");
+                } else {
+                    int new_quantity = Integer.parseInt(mQuantityEditText.getText().toString().trim());
+                    if (new_quantity > 0) {
+                        new_quantity--;
+                        mQuantityEditText.setText(String.valueOf(new_quantity));
+                    } else {
+                        Toast.makeText(EditorActivity.this, "Quantity cannot be negative",
+                                Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
