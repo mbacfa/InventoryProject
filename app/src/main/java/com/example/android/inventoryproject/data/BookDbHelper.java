@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.android.inventoryproject.data.BookContract.BookEntry;
 
 public class BookDbHelper extends SQLiteOpenHelper {
+
     public static final String LOG_TAG = BookDbHelper.class.getSimpleName();
 
     /** Name of the database file */
@@ -32,6 +33,7 @@ public class BookDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // Create a String that contains the SQL statement to create the books table
         String SQL_CREATE_BOOKS_TABLE =  "CREATE TABLE " + BookEntry.TABLE_NAME + " ("
+                + BookEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + BookEntry.COLUMN_BOOK_NAME + " TEXT NOT NULL, "
                 + BookEntry.COLUMN_BOOK_SUPPLIER + " TEXT, "
                 + BookEntry.COLUMN_BOOK_PRICE + " INTEGER NOT NULL, "

@@ -13,6 +13,7 @@
     <string name="action_delete">Delete</string>
     <string name="hint_title">Title</string>
     <string name="hint_supplier">Supplier</string>
+    <string name="hint_phone">Phone</string>
     <string name="empty_view_title_text">No books here so far.</string>
     <string name="empty_view_subtitle_text">Get started by ordering one!</string>
     <string name="editor_insert_book_successful">Book saved</string>
@@ -27,4 +28,5 @@
     <string name="delete_dialog_msg">Delete this book?</string>
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
+    <string name="unknown_supplier">Unknown Supplier</string>
 </resources>
