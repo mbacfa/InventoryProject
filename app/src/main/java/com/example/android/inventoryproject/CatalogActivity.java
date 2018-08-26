@@ -67,10 +67,10 @@ public class CatalogActivity extends AppCompatActivity implements
                 // {@link BookEntry#CONTENT_URI}.
                 // For example, the URI would be "content://com.example.android.books/books/2"
                 // if the book with ID 2 was clicked on.
-                Uri currentPetUri = ContentUris.withAppendedId(BookEntry.CONTENT_URI, id);
+                Uri currentBookUri = ContentUris.withAppendedId(BookEntry.CONTENT_URI, id);
 
                 // Set the URI on the data field of the intent
-                intent.setData(currentPetUri);
+                intent.setData(currentBookUri);
 
                 // Launch the {@link EditorActivity} to display the data for the current book.
                 startActivity(intent);
@@ -133,7 +133,10 @@ public class CatalogActivity extends AppCompatActivity implements
         String[] projection = {
                 BookEntry._ID,
                 BookEntry.COLUMN_BOOK_NAME,
-                BookEntry.COLUMN_BOOK_SUPPLIER };
+                BookEntry.COLUMN_BOOK_SUPPLIER,
+                BookEntry.COLUMN_BOOK_PRICE,
+                BookEntry.COLUMN_BOOK_QUANTITY,
+                BookEntry.COLUMN_BOOK_SUPPLIER_PHONE};
 
         // This loader will execute the ContentProvider's query method on a background thread
         return new CursorLoader(this,   // Parent activity context
