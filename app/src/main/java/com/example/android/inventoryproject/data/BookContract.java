@@ -97,5 +97,6 @@ public final class BookContract {
          * Type: INTEGER
          */
         public final static String COLUMN_BOOK_SUPPLIER_PHONE = "phone";
+
     }
 }

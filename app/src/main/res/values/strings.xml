@@ -33,4 +33,8 @@
     <string name="decrease_quantity_button">-</string>
     <string name="increase_quantity_button">+</string>
     <string name="sale_button">Sale</string>
+    <string name="check_input">Please check that all fields are populated</string>
+    <string name="name_check">Book title is required</string>
+    <string name="supplier_check">Book supplier is required</string>
+    <string name="price_check">Book price is required</string>
 </resources>

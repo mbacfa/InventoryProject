@@ -4,10 +4,8 @@ package com.example.android.inventoryproject;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,24 +85,9 @@ public class BookCursorAdapter extends CursorAdapter {
         String bookQuantity = cursor.getString(quantityColumnIndex);
         String supplierPhone = cursor.getString(phoneColumnIndex);
 
-        // If the book supplier is empty string or null, then use some default text
-        // that says "Unknown supplier", so the TextView isn't blank.
-        if (TextUtils.isEmpty(bookSupplier)) {
-            bookSupplier = context.getString(R.string.unknown_supplier);
-        }
-
         mSellButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    Intent openEditor = new Intent(context, EditorActivity.class);
-                    openEditor.putExtra("id", id);
-                    Uri currentBookUri = ContentUris.withAppendedId(BookEntry.CONTENT_URI, id);
-                    openEditor.setData(currentBookUri);
-                    view.getContext().startActivity(openEditor);
-                } catch (Exception e) {
-                    String s = e.getMessage();
-                }
 
                 ContentValues values = new ContentValues();
                 try {

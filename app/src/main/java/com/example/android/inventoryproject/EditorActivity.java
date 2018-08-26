@@ -182,9 +182,38 @@ public class EditorActivity extends AppCompatActivity implements
         // Create a ContentValues object where column names are the keys,
         // and book attributes from the editor are the values.
         ContentValues values = new ContentValues();
-        values.put(BookEntry.COLUMN_BOOK_NAME, nameString);
-        values.put(BookEntry.COLUMN_BOOK_SUPPLIER, supplierString);
-        values.put(BookEntry.COLUMN_BOOK_PRICE, priceString);
+
+        if (TextUtils.isEmpty(nameString)) {
+            Toast.makeText(this, getString(R.string.name_check),
+                    Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            values.put(BookEntry.COLUMN_BOOK_NAME, nameString);
+        }
+
+        if (TextUtils.isEmpty(supplierString)) {
+            Toast.makeText(this, getString(R.string.supplier_check),
+                    Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            values.put(BookEntry.COLUMN_BOOK_SUPPLIER, supplierString);
+        }
+
+        if (!priceString.isEmpty()) {
+            int price = (int) (Float.parseFloat(priceString) * 100);
+            if (price <= 0) {
+                Toast.makeText(this, getString(R.string.price_check),
+                        Toast.LENGTH_SHORT).show();
+                return;
+            } else {
+                values.put(BookEntry.COLUMN_BOOK_PRICE, price);
+            }
+        } else {
+            Toast.makeText(this, getString(R.string.price_check),
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         // If the quantity is not provided by the user, don't try to parse the string into an
         // integer value. Use 0 by default.
         int quantity = 0;
