@@ -214,20 +214,22 @@ public class EditorActivity extends AppCompatActivity implements
             return;
         }
 
-        // If the quantity is not provided by the user, don't try to parse the string into an
-        // integer value. Use 0 by default.
-        int quantity = 0;
-        if (!TextUtils.isEmpty(quantityString)) {
-            quantity = Integer.parseInt(quantityString);
+        if (TextUtils.isEmpty(quantityString)) {
+            Toast.makeText(this, getString(R.string.quantity_check),
+                    Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            values.put(BookEntry.COLUMN_BOOK_QUANTITY, quantityString);
         }
-        values.put(BookEntry.COLUMN_BOOK_QUANTITY, quantity);
-        // If the phone is not provided by the user, don't try to parse the string into an
-        // integer value. Use 0 by default.
-        int phone = 0;
-        if (!TextUtils.isEmpty(phoneString)) {
-            phone = Integer.parseInt(phoneString);
+
+
+        if (TextUtils.isEmpty(phoneString)) {
+            Toast.makeText(this, getString(R.string.phone_check),
+                    Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            values.put(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE, phoneString);
         }
-        values.put(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE, phone);
 
         // Determine if this is a new or existing book by checking if mCurrentBookUri is null or not
         if (mCurrentBookUri == null) {

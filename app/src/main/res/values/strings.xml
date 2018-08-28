@@ -37,4 +37,7 @@
     <string name="name_check">Book title is required</string>
     <string name="supplier_check">Book supplier is required</string>
     <string name="price_check">Book price is required</string>
+    <string name="quantity_check">Book quantity is required</string>
+    <string name="phone_check">Supplier phone is required</string>
+
 </resources>
